@@ -9,6 +9,10 @@
   --vurgu-metin: #ffffff;
   --hata: #c5221f;
   --hata-bg: #fde8e7;
+  --yakin: #8a5200;
+  --yakin-kenar: #c08000;
+  --yakin-bg: #fff4dc;
+  --etiket-bg: #eef0f4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +26,10 @@
     --vurgu-metin: #0d1530;
     --hata: #ff8a80;
     --hata-bg: #3d1716;
+    --yakin: #ffc861;
+    --yakin-kenar: #ffc861;
+    --yakin-bg: #3a2c0e;
+    --etiket-bg: #262b37;
   }
 }
 
@@ -144,6 +152,20 @@ button {
 }
 
 .bilgi .soluk { font-size: .9rem; }
+
+.kalan {
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: var(--etiket-bg);
+  font-size: .85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.odev.yakin { border-left-color: var(--yakin-kenar); }
+.yakin .kalan { background: var(--yakin-bg); color: var(--yakin); }
+.odev.gecikti { border-left-color: var(--hata); }
+.gecikti .kalan { background: var(--hata-bg); color: var(--hata); }
 
 .sil {
   background: transparent;

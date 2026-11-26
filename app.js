@@ -39,6 +39,9 @@ function satir(odev) {
   const tarih = li.querySelector(".tarih");
   tarih.dateTime = odev.teslim;
   tarih.textContent = odev.teslim.split("-").reverse().join(".");
+  const gun = kalanGun(odev.teslim);
+  li.querySelector(".kalan").textContent = kalanMetni(gun);
+  if (aciliyet(gun)) li.classList.add(aciliyet(gun));
   const sil = li.querySelector(".sil");
   sil.setAttribute("aria-label", `${odev.baslik} ödevini sil`);
   sil.addEventListener("click", () => {
@@ -52,7 +55,7 @@ function satir(odev) {
 }
 
 function goster() {
-  liste.replaceChildren(...odevler.map(satir));
+  liste.replaceChildren(...sirala(odevler).map(satir));
   bos.hidden = odevler.length > 0;
 }
 

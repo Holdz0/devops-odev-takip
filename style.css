@@ -1,0 +1,171 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --kart: #ffffff;
+  --metin: #1d2433;
+  --soluk: #5b6477;
+  --kenar: #d5d9e0;
+  --vurgu: #2f5bd3;
+  --vurgu-metin: #ffffff;
+  --hata: #c5221f;
+  --hata-bg: #fde8e7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151c;
+    --kart: #1b1f29;
+    --metin: #e6e9ef;
+    --soluk: #a3abbb;
+    --kenar: #343a48;
+    --vurgu: #8fb0ff;
+    --vurgu-metin: #0d1530;
+    --hata: #ff8a80;
+    --hata-bg: #3d1716;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--metin);
+  font: 1rem/1.5 system-ui, sans-serif;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 { margin: 0; font-size: 1.75rem; }
+h2 { margin: 0 0 .25rem; font-size: 1.15rem; }
+header { margin-bottom: 1.5rem; }
+header p, .kart > p { margin: 0 0 1rem; }
+
+.soluk { color: var(--soluk); }
+
+.kart {
+  background: var(--kart);
+  border: 1px solid var(--kenar);
+  border-radius: .75rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.alanlar {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  margin-bottom: 1rem;
+}
+
+.alan label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .25rem;
+}
+
+input, button { font: inherit; }
+
+input {
+  width: 100%;
+  padding: .55rem .7rem;
+  border: 1px solid var(--kenar);
+  border-radius: .5rem;
+  background: var(--kart);
+  color: var(--metin);
+}
+
+/* Hata yalnızca kullanıcı alana dokunduktan veya formu göndermeyi denedikten sonra görünür. */
+input:user-invalid {
+  border-color: var(--hata);
+  background: var(--hata-bg);
+}
+
+.hata {
+  display: none;
+  margin: .25rem 0 0;
+  color: var(--hata);
+  font-size: .875rem;
+}
+
+input:user-invalid + .hata { display: block; }
+
+.hata-kutu {
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  background: var(--hata-bg);
+  color: var(--hata);
+}
+
+button {
+  padding: .55rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  background: var(--vurgu);
+  color: var(--vurgu-metin);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--vurgu);
+  outline-offset: 2px;
+}
+
+#liste {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .5rem;
+}
+
+.odev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .75rem;
+  padding: .75rem 1rem;
+  background: var(--kart);
+  border: 1px solid var(--kenar);
+  border-left-width: 4px;
+  border-radius: .5rem;
+}
+
+.bilgi {
+  flex: 1;
+  min-width: 10rem;
+  display: grid;
+  overflow-wrap: anywhere;
+}
+
+.bilgi .soluk { font-size: .9rem; }
+
+.sil {
+  background: transparent;
+  border-color: var(--kenar);
+  color: var(--metin);
+  font-weight: 400;
+}
+
+.sil:hover {
+  border-color: var(--hata);
+  color: var(--hata);
+}
+
+/* Görsel olarak gizli, ekran okuyucuya açık. */
+.gorunmez {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

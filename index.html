@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Ödev Takip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Ödev Takip</h1>
+      <p class="soluk">Ödevlerini ekle, teslim tarihini kaçırma.</p>
+    </header>
+
+    <form id="odev-form" class="kart">
+      <h2>Yeni ödev</h2>
+      <p class="soluk">Tüm alanlar zorunludur.</p>
+      <div class="alanlar">
+        <div class="alan">
+          <label for="ders">Ders</label>
+          <input id="ders" name="ders" required maxlength="60" pattern=".*\S.*" autocomplete="off" placeholder="Örn. DevOps" data-error="ders-hata">
+          <p id="ders-hata" class="hata">Ders adı gerekli.</p>
+        </div>
+        <div class="alan">
+          <label for="baslik">Ödev</label>
+          <input id="baslik" name="baslik" required maxlength="100" pattern=".*\S.*" autocomplete="off" placeholder="Örn. Proje raporu" data-error="baslik-hata">
+          <p id="baslik-hata" class="hata">Ödev başlığı gerekli.</p>
+        </div>
+        <div class="alan">
+          <label for="teslim">Teslim tarihi</label>
+          <input id="teslim" name="teslim" type="date" required data-error="teslim-hata">
+          <p id="teslim-hata" class="hata">Teslim tarihi gerekli.</p>
+        </div>
+      </div>
+      <button type="submit">Ekle</button>
+    </form>
+
+    <section aria-labelledby="liste-baslik">
+      <h2 id="liste-baslik" tabindex="-1">Ödevlerim</h2>
+      <p id="uyari" class="hata-kutu" hidden>Tarayıcı depolaması kullanılamıyor; ödevler sayfa kapanınca silinir.</p>
+      <p id="bos" class="soluk">Henüz ödev eklemedin.</p>
+      <ul id="liste"></ul>
+    </section>
+  </main>
+
+  <div id="duyuru" class="gorunmez" aria-live="polite"></div>
+
+  <template id="odev-sablon">
+    <li class="odev">
+      <div class="bilgi">
+        <strong class="baslik"></strong>
+        <span class="soluk"><span class="ders"></span> · <time class="tarih"></time></span>
+      </div>
+      <button type="button" class="sil">Sil</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

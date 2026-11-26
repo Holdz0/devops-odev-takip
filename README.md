@@ -14,4 +14,22 @@ Görevler, açıklamaları ve kabul kriterleri: **https://github.com/users/Holdz
 
 Pano sütunları: **Yapılacak → Devam Ediyor → Tamamlandı**. Her kart bir GitHub issue'sudur.
 
-> Proje geliştirme aşamasındadır. Çalıştırma adımları ve özellikleri deneme yönergeleri, özellikler eklendikçe bu dosyaya yazılacaktır.
+## Çalıştırma
+
+Kurulum veya derleme gerekmez.
+
+- **Canlı demo:** https://holdz0.github.io/devops-odev-takip/
+- **Yerelde:**
+  1. `git clone https://github.com/Holdz0/devops-odev-takip.git`
+  2. `devops-odev-takip` klasöründeki `index.html` dosyasını tarayıcıda açın (çift tıklamak yeterli).
+
+Ödevler tarayıcının `localStorage` alanında saklanır; sunucu veya veritabanı yoktur.
+
+## Özellikleri deneme
+
+### 1. Ödev ekleme, listeleme ve silme ([#1](https://github.com/Holdz0/devops-odev-takip/issues/1))
+
+1. **Ders**, **Ödev** ve **Teslim tarihi** alanlarını doldurup **Ekle**'ye basın → ödev "Ödevlerim" listesinde görünür ve form temizlenir.
+2. Bir alanı boş bırakıp **Ekle**'ye basın → ödev eklenmez, boş alan kırmızıya döner ve altında hata mesajı çıkar.
+3. Bir ödevin yanındaki **Sil**'e basın → ödev listeden kalkar.
+4. Sayfayı yenileyin (F5) → eklenen ödevler yerinde durur.
